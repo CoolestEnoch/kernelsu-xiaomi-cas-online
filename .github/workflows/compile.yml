@@ -28,6 +28,9 @@ jobs:
          run: |
             cd kernel/source
             curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
+            echo "CONFIG_KPROBES=y" >> arch/arm64/configs/defconfig
+            echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/defconfig
+            echo "CONFIG_KPROBE_EVENTS=y" >> arch/arm64/configs/defconfig
        - name: Compile KERNEL
          run: |
             cd kernel/source
