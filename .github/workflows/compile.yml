@@ -34,10 +34,9 @@ jobs:
        - name: Compile KERNEL
          run: |
             cd kernel/source
+            sed -i 's/-fno-asynchronous-unwind-tables/-fno-asynchronous-unwind-tables -std=c11/g' arch/arm64/Makefile
             export CROSS_COMPILE=/home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/kernel/toolchain/bin/aarch64-linux-
             export ARCH=arm64
-            export CFLAGS="$CFLAGS -std=c99"
-            export CXXFLAGS="$CXXFLAGS -std=c99"
             make vendor/bengal-perf_defconfig
             make -j$(nproc --all)
        - name: Upload Image.gz
