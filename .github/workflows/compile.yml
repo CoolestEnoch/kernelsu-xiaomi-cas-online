@@ -46,9 +46,9 @@ jobs:
         arch: arm64
         compiler: proton-clang/master/binutils
         defconfig: vendor/bengal-perf_defconfig
-        image: Image.gz-dtb
+        image: Image
     - name: Upload Build
       uses: actions/upload-artifact@v3
       with:
         name: Image
-        path: /home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/source/arch/arm64/boot
+        path: /home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/source/out/arch/arm64/boot
