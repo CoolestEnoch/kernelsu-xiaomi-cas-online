@@ -4,7 +4,7 @@ on: [push]
 
 env:
   SOURCE: https://github.com/ShelbyHell/sunrise_kernel_juice -b topaz
-  TOOLCHAIN: https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9
+  TOOLCHAIN: https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-gnu-9.3
 
 jobs:
   build:
@@ -31,7 +31,7 @@ jobs:
        - name: Compile KERNEL
          run: |
             cd kernel/source
-            export CROSS_COMPILE=/home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/kernel/toolchain/bin/aarch64-linux-android-
+            export CROSS_COMPILE=/home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/kernel/toolchain/bin/aarch64-linux-
             export ARCH=arm64
             make ranchu64_defconfig
             make -j$(nproc --all)
@@ -39,4 +39,4 @@ jobs:
          uses: actions/upload-artifact@v3
          with:
           name: Image
-          path: /home/runner/work/Kernel-CI/Kernel-CI/kernel/source/arch/arm64/boot/*.gz
+          path: /home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/kernel/source/arch/arm64/boot/*.gz
