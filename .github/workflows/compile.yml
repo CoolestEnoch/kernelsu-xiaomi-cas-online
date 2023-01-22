@@ -30,6 +30,7 @@ jobs:
             curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
        - name: Compile KERNEL
          run: |
+            cd kernel/source
             export CROSS_COMPILE=/home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/kernel/toolchain/bin/aarch64-linux-android-
             export ARCH=arm64
             make ranchu64_defconfig
