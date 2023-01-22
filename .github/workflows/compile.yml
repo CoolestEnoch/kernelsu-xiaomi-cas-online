@@ -32,13 +32,8 @@ jobs:
          run: |
             export CROSS_COMPILE=/home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/kernel/toolchain/bin/aarch64-linux-android-
             export ARCH=arm64
-            make O=out ARCH=arm64 ranchu64_defconfig
-            make -j$(nproc --all) O=out \
-                    ARCH=arm64 \
-                    CC=clang \
-                    CLANG_TRIPLE=aarch64-linux-gnu- \
-                    CROSS_COMPILE=aarch64-linux-android- \
-                    CROSS_COMPILE_ARM32=arm-linux-androideabi-
+            make ranchu64_defconfig
+            make -j$(nproc --all)
        - name: Upload Image.gz
          uses: actions/upload-artifact@v3
          with:
