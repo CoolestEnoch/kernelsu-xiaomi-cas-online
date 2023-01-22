@@ -23,7 +23,7 @@ jobs:
             mkdir kernel
             cd kernel
             git clone $SOURCE source
-            git clone $TOOLCHAIN toolchain
+            git clone $TOOLCHAIN --depth=1 toolchain
        - name: Integrate KernelSU
          run: |
             cd kernel/source
@@ -33,7 +33,7 @@ jobs:
             cd kernel/source
             export CROSS_COMPILE=/home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/kernel/toolchain/bin/aarch64-linux-
             export ARCH=arm64
-            make ranchu64_defconfig
+            make defconfig
             make -j$(nproc --all)
        - name: Upload Image.gz
          uses: actions/upload-artifact@v3
