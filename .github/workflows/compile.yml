@@ -1,8 +1,6 @@
 name: Kernel Builder Redmi 9T juice
 
-on:
-  watch:
-    types: [started]
+on: [push]
 
 env:
   SOURCE: https://github.com/ShelbyHell/sunrise_kernel_juice -b topaz
