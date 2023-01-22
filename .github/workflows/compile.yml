@@ -20,6 +20,12 @@ jobs:
     - name: Integrate KernelSU
       run: |
         cd source
+
+        echo "[+] Append kernel params to kprobes"
+        echo "CONFIG_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
+        echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
+        echo "CONFIG_KPROBE_EVENTS=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
+
         git clone https://github.com/tiann/KernelSU
         cd KernelSU
         git stash && git pull
