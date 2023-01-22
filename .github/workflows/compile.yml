@@ -51,4 +51,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Image
-        path: source/out/arch/arm64/boot
+        path: ${{ steps.build.outputs.outfile }}
