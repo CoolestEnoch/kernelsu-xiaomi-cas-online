@@ -1,51 +1,29 @@
-name: Kernel Builder Redmi 9T juice based on AOSPA
+name: Build on Tag
 
-on: [push]
-
-env:
-  SOURCE: https://github.com/ShelbyHell/sunrise_kernel_juice -b topaz
-  TOOLCHAIN: https://github.com/kdrag0n/proton-clang
+on:
+  push:
+    tags: '*'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-       - name: Checkout
-         uses: actions/checkout@master
+    - name: Checkout kernel source
+      uses: actions/checkout@v2
 
-       - name: Initialize environment
-         run: |
-            sudo apt update
-            sudo apt install -y build-essential libncurses5-dev bzip2 git
-       - name: Clone kernel source and compiler
-         run: |
-            mkdir kernel
-            cd kernel
-            git clone $SOURCE source
-            git clone $TOOLCHAIN --depth=1 toolchain/proton-clang
-            git clone https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 --depth=1 toolchain/gcc
+    - name: Checkout zipper
+      uses: actions/checkout@v2
+      with:
+        repository: lemniskett/AnyKernel3
+        path: zipper
 
-       - name: Integrate KernelSU
-         run: |
-            cd kernel/source
-            curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
-            echo "CONFIG_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
-            echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
-            echo "CONFIG_KPROBE_EVENTS=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
-       - name: Compile KERNEL
-         run: |
-            cd kernel/source
-            export ARCH=arm64
-            export PATH="/home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/kernel/toolchain/proton-clang/bin:/home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/kernel/toolchain/gcc/bin:/home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/kernel/toolchain/gcc32/bin:${PATH}"
-            make vendor/bengal-perf_defconfig
-            make -j$(nproc --all) \
-            ARCH=arm64 \
-            CC=clang \
-            CLANG_TRIPLE=aarch64-linux-gnu- \
-            CROSS_COMPILE=aarch64-linux-android- \
-       - name: Upload Image.gz
-         uses: actions/upload-artifact@v3
-         with:
-          name: Image
-          path: /home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/kernel/source/arch/arm64/boot/*.gz
+    - name: Android kernel build
+      uses: lemniskett/android-kernel-actions@master
+      id: build
+      env:
+        NAME: Dark-Ages-Último
+      with:
+        arch: arm64
+        compiler: proton-clang/master/binutils
+        defconfig: vince_defconfig
+        image: Image.gz-dtb
