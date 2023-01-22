@@ -9,8 +9,8 @@ jobs:
     - name: Checkout kernel source
       uses: actions/checkout@v2
       with:
-        repository: ShelbyHell/sunrise_kernel_juice
-        ref: topaz
+        repository: pokon548/sunrise_kernel_juice
+        ref: topaz-kernelsu
         path: source
 
     - name: Checkout zipper
@@ -18,13 +18,6 @@ jobs:
       with:
         repository: lemniskett/AnyKernel3
         path: zipper
-    - name: Integrate KernelSU
-      run: |
-        cd source
-        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
-        echo "CONFIG_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
-        echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
-        echo "CONFIG_KPROBE_EVENTS=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
     - name: Android kernel build
       uses: lemniskett/android-kernel-actions@master
       id: build
@@ -35,3 +28,8 @@ jobs:
         compiler: proton-clang/master/binutils
         defconfig: vendor/bengal-perf_defconfig
         image: Image.gz-dtb
+    - name: Upload Image.gz
+         uses: actions/upload-artifact@v3
+         with:
+          name: Image
+          path: source/arch/arm64/boot/*.gz
