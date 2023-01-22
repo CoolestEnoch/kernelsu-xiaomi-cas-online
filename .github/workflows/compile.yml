@@ -51,4 +51,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Image
-        path: ${{ steps.build.outputs.outfile }}
+        path: /home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/source/arch/arm64/boot/*.gz
