@@ -8,6 +8,8 @@ jobs:
     steps:
     - name: Checkout kernel source
       uses: actions/checkout@v2
+      with:
+        repository: ShelbyHell/sunrise_kernel_juice
 
     - name: Checkout zipper
       uses: actions/checkout@v2
