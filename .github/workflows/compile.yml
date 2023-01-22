@@ -30,5 +30,5 @@ jobs:
       with:
         arch: arm64
         compiler: proton-clang/master/binutils
-        defconfig: bengal-perf_defconfig
+        defconfig: vendor/bengal-perf_defconfig
         image: Image.gz-dtb
