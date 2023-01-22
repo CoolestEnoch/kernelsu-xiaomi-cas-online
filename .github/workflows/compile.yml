@@ -12,12 +12,25 @@ jobs:
         repository: pokon548/sunrise_kernel_juice
         ref: topaz-kernelsu
         path: source
-
     - name: Checkout zipper
       uses: actions/checkout@v2
       with:
         repository: lemniskett/AnyKernel3
         path: zipper
+    - name: Integrate KernelSU
+      run: |
+      cd source
+      git clone https://github.com/tiann/KernelSU
+      cd KernelSU
+      git stash && git pull
+      cd ../
+      cp -r KernelSU/kernel drivers/kernelsu
+
+      echo "[+] Add kernel su driver to Makefile"
+
+      echo "obj-y += kernelsu/" >> drivers/Makefile
+
+      echo "[+] Done."
     - name: Android kernel build
       uses: lemniskett/android-kernel-actions@master
       id: build
