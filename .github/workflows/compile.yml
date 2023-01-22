@@ -51,4 +51,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Image
-        path: /home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/source/out/arch/arm64/boot
+        path: source/out/arch/arm64/boot
