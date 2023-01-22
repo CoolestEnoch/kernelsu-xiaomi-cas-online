@@ -18,7 +18,6 @@ jobs:
         path: zipper
     - name: Integrate KernelSU
       run: |
-        ls .
         curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
         echo "CONFIG_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
         echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
@@ -26,10 +25,8 @@ jobs:
     - name: Android kernel build
       uses: lemniskett/android-kernel-actions@master
       id: build
-      env:
-        NAME: Dark-Ages-Último
       with:
         arch: arm64
-        compiler: proton-clang/master/binutils
+        compiler: clang/11/binutils
         defconfig: vendor/bengal-perf_defconfig
         image: Image.gz-dtb
