@@ -24,6 +24,10 @@ jobs:
             cd kernel
             git clone $SOURCE source
             git clone $TOOLCHAIN -b lineage-20.0 toolchain
+       - name: Integrate KernelSU
+         run: |
+            cd kernel/source
+            curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
        - name: Compile KERNEL
          run: |
             cd kernel/source
