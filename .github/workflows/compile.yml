@@ -25,7 +25,6 @@ jobs:
             git clone $SOURCE source
             git clone $TOOLCHAIN --depth=1 toolchain/proton-clang
             git clone https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 --depth=1 toolchain/gcc
-            git clone https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 --depth=1 toolchain/gcc32
 
        - name: Integrate KernelSU
          run: |
@@ -45,7 +44,6 @@ jobs:
             CC=clang \
             CLANG_TRIPLE=aarch64-linux-gnu- \
             CROSS_COMPILE=aarch64-linux-android- \
-            CROSS_COMPILE_ARM32=arm-linux-androideabi-
        - name: Upload Image.gz
          uses: actions/upload-artifact@v3
          with:
