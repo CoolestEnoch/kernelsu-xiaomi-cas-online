@@ -17,11 +17,11 @@ jobs:
         repository: lemniskett/AnyKernel3
         path: zipper
     - name: Integrate KernelSU
-         run: |
-            curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
-            echo "CONFIG_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
-            echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
-            echo "CONFIG_KPROBE_EVENTS=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
+      run: |
+        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
+        echo "CONFIG_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
+        echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
+        echo "CONFIG_KPROBE_EVENTS=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
     - name: Android kernel build
       uses: lemniskett/android-kernel-actions@master
       id: build
