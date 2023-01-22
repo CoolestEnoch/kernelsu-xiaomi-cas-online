@@ -47,3 +47,8 @@ jobs:
         compiler: proton-clang/master/binutils
         defconfig: vendor/bengal-perf_defconfig
         image: Image.gz-dtb
+    - name: Upload Build
+      uses: actions/upload-artifact@v3
+      with:
+        name: Image
+        path: ${{ steps.build.outputs.outfile }}
