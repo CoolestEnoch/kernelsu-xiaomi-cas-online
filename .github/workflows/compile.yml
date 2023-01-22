@@ -11,6 +11,7 @@ jobs:
       with:
         repository: ShelbyHell/sunrise_kernel_juice
         ref: topaz
+        path: source
 
     - name: Checkout zipper
       uses: actions/checkout@v2
@@ -19,6 +20,7 @@ jobs:
         path: zipper
     - name: Integrate KernelSU
       run: |
+        cd /home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/source
         curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
         echo "CONFIG_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
         echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
@@ -26,6 +28,8 @@ jobs:
     - name: Android kernel build
       uses: lemniskett/android-kernel-actions@master
       id: build
+      env:
+        KERNEL_PATH: source
       with:
         arch: arm64
         compiler: proton-clang/master/binutils
