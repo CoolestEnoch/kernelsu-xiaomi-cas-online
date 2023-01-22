@@ -28,15 +28,15 @@ jobs:
          run: |
             cd kernel/source
             curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
-            echo "CONFIG_KPROBES=y" >> arch/arm64/configs/defconfig
-            echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/defconfig
-            echo "CONFIG_KPROBE_EVENTS=y" >> arch/arm64/configs/defconfig
+            echo "CONFIG_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
+            echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
+            echo "CONFIG_KPROBE_EVENTS=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
        - name: Compile KERNEL
          run: |
             cd kernel/source
             export CROSS_COMPILE=/home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/kernel/toolchain/bin/aarch64-linux-
             export ARCH=arm64
-            make defconfig
+            make vendor/bengal-perf_defconfig
             make -j$(nproc --all)
        - name: Upload Image.gz
          uses: actions/upload-artifact@v3
