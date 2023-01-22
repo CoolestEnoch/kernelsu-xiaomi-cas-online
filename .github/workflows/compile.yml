@@ -1,8 +1,6 @@
-name: Build on Tag
+name: Kernel Builder Redmi 9T juice based on AOSPA
 
-on:
-  push:
-    tags: '*'
+on: [push]
 
 jobs:
   build:
