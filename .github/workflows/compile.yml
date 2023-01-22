@@ -10,6 +10,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: ShelbyHell/sunrise_kernel_juice
+        ref: topaz
 
     - name: Checkout zipper
       uses: actions/checkout@v2
@@ -27,6 +28,6 @@ jobs:
       id: build
       with:
         arch: arm64
-        compiler: clang/11/binutils
+        compiler: proton-clang/master/binutils
         defconfig: vendor/bengal-perf_defconfig
         image: Image.gz-dtb
