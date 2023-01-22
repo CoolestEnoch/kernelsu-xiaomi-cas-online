@@ -17,7 +17,7 @@ jobs:
        - name: Initialize environment
          run: |
             sudo apt update
-            sudo apt install -y build-essential kernel-package libncurses5-dev bzip2 git
+            sudo apt install -y build-essential libncurses5-dev bzip2 git
        - name: Clone kernel source and compiler
          run: |
             mkdir kernel
