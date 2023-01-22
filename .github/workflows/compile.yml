@@ -1,4 +1,4 @@
-name: Kernel Builder Redmi 9T juice
+name: Kernel Builder Redmi 9T juice based on AOSPA
 
 on: [push]
 
