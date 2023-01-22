@@ -1,0 +1,40 @@
+name: Kernel Builder Redmi 9T juice
+
+on:
+  watch:
+    types: [started]
+
+env:
+  SOURCE: https://github.com/ShelbyHell/sunrise_kernel_juice -b topaz
+  TOOLCHAIN: https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-gnu-9.3 -b lineage-20.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+       - name: Checkout
+         uses: actions/checkout@master
+
+       - name: Initialize environment
+         run: |
+            sudo apt-get update
+            sudo apt-get install -y build-essential kernel-package libncurses5-dev bzip2 git
+       - name: Clone kernel source and compiler
+         run: |
+            mkdir kernel
+            cd kernel
+            git clone $SOURCE source
+            git clone $TOOLCHAIN -b lineage-20.0 toolchain
+       - name: Compile KERNEL
+         run: |
+            cd kernel/source
+            export CROSS_COMPILE=/home/runner/work/Kernel-CI/Kernel-CI/kernel/toolchain/bin/aarch64-linux-android-
+            export ARCH=arm64
+            make ranchu64_defconfig
+            make -j$(nproc --all)
+       - name: Upload Image.gz
+         uses: actions/upload-artifact@v3
+         with:
+          name: Image
+          path: /home/runner/work/Kernel-CI/Kernel-CI/kernel/source/arch/arm64/boot/*.gz
