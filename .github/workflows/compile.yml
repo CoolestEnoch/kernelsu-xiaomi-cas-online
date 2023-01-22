@@ -51,4 +51,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Image
-        path: /github/workspace/source/out
+        path: /home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/source/out
