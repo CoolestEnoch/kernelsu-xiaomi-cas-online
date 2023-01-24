@@ -9,7 +9,7 @@ jobs:
     - name: Checkout kernel source
       uses: actions/checkout@v2
       with:
-        repository: ShelbyHell/sunrise_kernel_juice
+        repository: CoolestEnoch/xiaomi-10-ultra-kernel
         ref: topaz
         path: source
     - name: Checkout zipper
@@ -51,4 +51,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Image
-        path: /home/runner/work/kernelsu-xiaomi-juice/kernelsu-xiaomi-juice/zipper
+        path: /home/runner/work/kernelsu-xiaomi-cas/kernelsu-xiaomi-cas/zipper
