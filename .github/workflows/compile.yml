@@ -1,4 +1,4 @@
-name: Kernel Builder Redmi 9T juice based on AOSPA
+name: Kernel Builder Xiaomi 10 Ultra
 
 on: [push]
 
