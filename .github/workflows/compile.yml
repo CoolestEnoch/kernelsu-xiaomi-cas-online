@@ -35,8 +35,6 @@ jobs:
 
         echo "obj-y += kernelsu/" >> drivers/Makefile
 
-        echo "source \"drivers/kernelsu/Kconfig\"" >> drivers/Kconfig
-
         echo "[+] Done."
     - name: Android kernel build
       uses: lemniskett/android-kernel-actions@master
