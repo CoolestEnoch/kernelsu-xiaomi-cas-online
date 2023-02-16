@@ -14,13 +14,8 @@ jobs:
     - name: Integrate KernelSU
       run: |
         
-        
-        
-        wget http://mirrors.ustc.edu.cn/debian/pool/main/e/elfutils/debuginfod_0.183-1~bpo10%2B1_amd64.deb
-        sudo dpkg -i ./debuginfod_0.183-1~bpo10+1_amd64.deb
-        
-        wget http://mirrors.ustc.edu.cn/debian/pool/main/e/elfutils/debuginfod_0.183-1_amd64.deb
-        sudo dpkg -i ./debuginfod_0.183-1_amd64.deb
+        sudo apt install neofetch
+        neofetch
 
         
 
