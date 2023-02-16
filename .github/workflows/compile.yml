@@ -13,6 +13,4 @@ jobs:
         path: zipper
     - name: Integrate KernelSU
       run: |
-        
-        grep 'processor' /proc/cpuinfo | sort -u | wc -l   
-        
+        pwd
