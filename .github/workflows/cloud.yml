@@ -6,12 +6,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout kernel source
-      uses: actions/checkout@v2
-      with:
-        repository: CoolestEnoch/xiaomi-10-ultra-kernel
-        ref: topaz
-        path: source
     - name: Checkout zipper
       uses: actions/checkout@v2
       with:
