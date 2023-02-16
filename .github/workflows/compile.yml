@@ -49,8 +49,8 @@ jobs:
         sudo apt install git-core gnupg flex bison build-essential zip curl build-essential
         
         export ARCH=arm64
-        export CROSS_COMPILE=/home/runner/work/kernelsu-xiaomi-cas-online/kernelsu-xiaomi-cas-online/gcc/gcc-arm64-gcc-master/bin/aarch64-elf-
-        export CROSS_COMPILE_ARM32=/home/runner/work/kernelsu-xiaomi-cas-online/kernelsu-xiaomi-cas-online/gcc/gcc-arm-gcc-master/bin/arm-eabi-
+        export CROSS_COMPILE=$(pwd)/gcc/gcc-arm64-gcc-master/bin/aarch64-elf-
+        export CROSS_COMPILE_ARM32=$(pwd)/gcc/gcc-arm-gcc-master/bin/arm-eabi-
         
         cd source
         make cas_defconfig
