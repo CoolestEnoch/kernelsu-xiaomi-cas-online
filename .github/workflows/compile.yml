@@ -20,7 +20,7 @@ jobs:
     - name: Integrate KernelSU
       run: |
         cd source
-        
+      
 
         echo "[+] Append kernel params to kprobes"
         echo "CONFIG_KPROBES=y" >> arch/arm64/configs/vendor/cas_defconfig
