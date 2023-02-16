@@ -49,7 +49,7 @@ jobs:
       with:
         arch: arm64
         compiler: proton-clang/master/binutils
-        defconfig: vendor/cas_defconfig
+        defconfig: cas_defconfig
         image: Image
     - name: Upload Build
       uses: actions/upload-artifact@v3
