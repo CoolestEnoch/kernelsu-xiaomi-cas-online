@@ -19,7 +19,6 @@ jobs:
   
         cd source
       
-      
         echo "[+] Append kernel params to kprobes"
         echo "CONFIG_KPROBES=y" >> arch/arm64/configs/vendor/cas_defconfig
         echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/vendor/cas_defconfig
