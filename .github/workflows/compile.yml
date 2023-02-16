@@ -45,7 +45,17 @@ jobs:
         mkdir gcc
         mv kernel-su-xiaomi-cas/gcc/ ./gcc
         rm -rf kernel-su-xiaomi-cas
-        ls ./gcc
+        
+        
+        sudo apt install git-core gnupg flex bison build-essential zip curl build-essential
+        
+        export ARCH=arm64
+        export CROSS_COMPILE=$(pwd)/gcc/gcc/gcc-arm64-gcc-master/bin/aarch64-elf-
+        export CROSS_COMPILE_ARM32=$(pwd)/gcc/gcc/gcc-arm-gcc-master/bin/arm-eabi-
+        
+        cd source
+        make cas_defconfig
+        make -j2
         
 
     - name: Upload Build
