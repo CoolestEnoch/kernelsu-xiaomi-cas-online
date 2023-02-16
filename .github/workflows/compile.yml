@@ -42,6 +42,8 @@ jobs:
         echo "[+] Add kernel su driver to Makefile"
 
         echo "obj-y += kernelsu/" >> drivers/Makefile
+        
+        echo "ccflags-y += -std=gnu11" >> drivers/kernelsu/Makefile
 
         echo "[+] Done."
         
