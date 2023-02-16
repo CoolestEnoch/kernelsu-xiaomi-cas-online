@@ -1,7 +1,8 @@
 # KernelSU for Xiaomi 10 Ultra (Cas)
 This repository is served for my personal experiment. Expect bugs!
 
-[![Kernel Builder Redmi 9T juice based on AOSPA](https://github.com/pokon548/kernelsu-xiaomi-juice/actions/workflows/compile.yml/badge.svg)](https://github.com/pokon548/kernelsu-xiaomi-juice/actions/workflows/compile.yml)
+[![Kernel Builder Xiaomi Mi 10 Ultra (cas) (legacy)](https://github.com/CoolestEnoch/kernelsu-xiaomi-cas-online/actions/workflows/legacy.yml/badge.svg)](https://github.com/CoolestEnoch/kernelsu-xiaomi-cas-online/actions/workflows/legacy.yml)
+[![Kernel Builder Xiaomi Mi 10 Ultra (cas) (cloud)](https://github.com/CoolestEnoch/kernelsu-xiaomi-cas-online/actions/workflows/cloud.yml/badge.svg)](https://github.com/CoolestEnoch/kernelsu-xiaomi-cas-online/actions/workflows/cloud.yml)
 
 ## What is this?
 Yet another self-compiled kernel for Xiaomi 10 series, integrated with [KernelSU](https://kernelsu.org).
