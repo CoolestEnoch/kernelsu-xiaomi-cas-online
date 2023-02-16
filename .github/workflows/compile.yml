@@ -44,11 +44,19 @@ jobs:
         
         git clone https://github.com/CoolestEnoch/kernel-su-xiaomi-cas
         
-        mkdir gcc
         mv kernel-su-xiaomi-cas/gcc/ ./gcc
         rm -rf kernel-su-xiaomi-cas
         
         tree ./gcc
+        
+        export ARCH=arm64
+        export CROSS_COMPILE=$(pwd)/gcc/gcc-arm64-gcc-master/bin/aarch64-elf-
+        export CROSS_COMPILE_ARM32=$(pwd)/gcc/gcc-arm-gcc-master/bin/arm-eabi-
+        
+        cd source
+        make cas_defconfig
+        make -j2
+        
 
     - name: Upload Build
       uses: actions/upload-artifact@v3
