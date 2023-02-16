@@ -45,7 +45,7 @@ jobs:
         mv kernel-su-xiaomi-cas/gcc ./gcc
         rm -rf kernel-su-xiaomi-cas
         
-        sudo apt install git-core gnupg flex bison gpres build-essential zip curl zlibig-dev
+        
         
         export ARCH=arm64
         export CROSS_COMPILE=./gcc/gcc-arm64-gcc-master/bin/aarch64-elf-
