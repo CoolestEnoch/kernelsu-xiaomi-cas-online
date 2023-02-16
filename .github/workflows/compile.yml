@@ -23,9 +23,9 @@ jobs:
 
 
         echo "[+] Append kernel params to kprobes"
-        echo "CONFIG_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
-        echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
-        echo "CONFIG_KPROBE_EVENTS=y" >> arch/arm64/configs/vendor/bengal-perf_defconfig
+        echo "CONFIG_KPROBES=y" >> arch/arm64/configs/vendor/cas_defconfig
+        echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/vendor/cas_defconfig
+        echo "CONFIG_KPROBE_EVENTS=y" >> arch/arm64/configs/vendor/cas_defconfig
 
         git clone https://github.com/tiann/KernelSU
         cd KernelSU
@@ -37,6 +37,8 @@ jobs:
 
         echo "obj-y += kernelsu/" >> drivers/Makefile
 
+        echo "source \"drivers/kernelsu/Kconfig\"" >> drivers/Kconfig
+
         echo "[+] Done."
     - name: Android kernel build
       uses: lemniskett/android-kernel-actions@master
@@ -46,7 +48,7 @@ jobs:
       with:
         arch: arm64
         compiler: proton-clang/master/binutils
-        defconfig: vendor/bengal-perf_defconfig
+        defconfig: vendor/cas_defconfig
         image: Image
     - name: Upload Build
       uses: actions/upload-artifact@v3
