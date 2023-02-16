@@ -13,13 +13,10 @@ jobs:
         path: zipper
     - name: Integrate KernelSU
       run: |
-        mkdir source
-        cd source
-        
         git clone https://github.com/CoolestEnoch/xiaomi-10-ultra-kernel
         
-        cd ..
-        
+        mv xiaomi-10-ultra-kernel source
+  
         cd source
       
       
