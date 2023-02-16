@@ -52,8 +52,8 @@ jobs:
         export CROSS_COMPILE=./gcc/gcc-arm64-gcc-master/bin/aarch64-elf-
         export CROSS_COMPILE_ARM32=./gcc/gcc-arm-gcc-master/bin/arm-eabi-
         
-        make cas_defconfig
         cd source
+        make cas_defconfig
         make -j2
         
 
