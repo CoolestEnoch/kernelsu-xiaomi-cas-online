@@ -1,4 +1,4 @@
-name: Kernel Builder Xiaomi 10 Ultra
+name: (GCC)Kernel Builder Xiaomi 10 Ultra
 
 on: [push]
 
