@@ -43,10 +43,10 @@ jobs:
         git clone https://github.com/CoolestEnoch/kernel-su-xiaomi-cas
         
         mkdir gcc
-        mv kernel-su-xiaomi-cas/gcc/* ./gcc
+        mv kernel-su-xiaomi-cas/gcc/ ./gcc
         rm -rf kernel-su-xiaomi-cas
         
-        sudo apt install git-core gnupg flex bison build-essential zip curl zlibig build-essential
+        sudo apt install git-core gnupg flex bison build-essential zip curl build-essential
         
         export ARCH=arm64
         export CROSS_COMPILE=./gcc/gcc-arm64-gcc-master/bin/aarch64-elf-
