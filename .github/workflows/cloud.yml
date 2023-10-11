@@ -1,6 +1,8 @@
 name: (Cloud)Kernel Builder Xiaomi 10 Ultra
 
-on: [push]
+on:
+  - push
+  - workflow_dispatch
 
 jobs:
   build:
