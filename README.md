@@ -4,7 +4,7 @@ This repository is served for my personal experiment. Expect bugs!
 ## Note
 You should install the latest KernelSU manager [CI](https://github.com/tiann/KernelSU/actions/workflows/build-manager.yml) or [Release](https://github.com/tiann/KernelSU/releases).
 
-This kernel will be built at every Monday 0:00(UTC+0) by Github Actions below:
+> This kernel will be built at every Monday 0:00(UTC+0) by Github Actions below:
 
 [![Kernel Builder Xiaomi Mi 10 Ultra (cas) (legacy)](https://github.com/CoolestEnoch/kernelsu-xiaomi-cas-online/actions/workflows/legacy.yml/badge.svg)](https://github.com/CoolestEnoch/kernelsu-xiaomi-cas-online/actions/workflows/legacy.yml)
 [![Kernel Builder Xiaomi Mi 10 Ultra (cas) (cloud)](https://github.com/CoolestEnoch/kernelsu-xiaomi-cas-online/actions/workflows/cloud.yml/badge.svg)](https://github.com/CoolestEnoch/kernelsu-xiaomi-cas-online/actions/workflows/cloud.yml)
